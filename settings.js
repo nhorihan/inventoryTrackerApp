@@ -8,6 +8,7 @@ var selectedSetting = 'game';
 
 function clickGame() {
     this.selectedSetting = 'game'
+    window.location.replace("/inventory.html");
     console.log(selectedSetting);
 }
 

@@ -1,0 +1,29 @@
+.game-board {
+    /* margin: auto; */
+    display: grid;
+    grid-template-rows: 250px 250px 250px;
+    grid-template-columns: 250px;
+    gap: 2em;
+    justify-content: left;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    background: #444;
+    border: 1px solid #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #AAA;
+}
+.box:hover {
+    background-color: #555;
+}
+
+.box:checked {
+    background-color: #555;
+}

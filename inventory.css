@@ -1,9 +1,18 @@
 .game-board {
     margin: auto;
     display: grid;
-    grid-template-rows: 250px 250px 250px;
-    grid-template-columns: 250px 250px 250px;
+    grid-template-rows: 210px 210px 210px 210px;
+    grid-template-columns: 200px 200px 200px;
     gap: 2em;
+}
+
+.option {
+    background: #888;
+    border: 5px solid #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
 
 body {

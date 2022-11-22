@@ -11,12 +11,13 @@ let startOverlayTime = Number.POSITIVE_INFINITY;
 let lookDiv = null;
 let isLookingAtSomething = false;
 var childDivs = document.getElementById('inv').getElementsByTagName('div');
+console.log(childDivs)
 
 webgazer.setGazeListener((data, timestamp) => {
     // restart loop if no tracking data
     if(data == null) return
     isLookingAtSomething = false;
-    for( i=0; i < childDivs.length; i++ ) {
+    for( i=0; i < childDivs.length ; i++ ) {
         // get dimensions for current div in loop
         var curDivRect = childDivs[i].getBoundingClientRect()
         // if looking at an element, change color, mark it as looked at, and mark looking at something
@@ -27,19 +28,25 @@ webgazer.setGazeListener((data, timestamp) => {
             }
             isLookingAtSomething = true;
             lookDiv = i;
-            childDivs[i].style.background="#555";
+            // childDivs[i].style.background="#555";
         }
         // if this element isn't being looked at, make sure it's the correct color
-        else childDivs[i].style.background="#444";
+        // else childDivs[i].style.background="#444";
     }
 
     // if user is looking at something and the selection timer is up, bring up the overlay
     if (isLookingAtSomething && startLookTime + LOOK_DELAY < timestamp) {
-        document.getElementById("text").innerHTML = '<b>Inventory Details:</b> <br>Inventory Object ' 
-        + lookDiv + ' lives here!';
-        overlayOn();
-        // begin the overlay timer
-        startOverlayTime = timestamp;
+        if (lookDiv === 9){
+            window.location.replace('settings.html');
+        } else if (lookDiv === 10){
+            window.location.replace('map.html');
+        }else {
+            document.getElementById("text").innerHTML = '<b>Inventory Details:</b> <br>Inventory Object ' 
+            + lookDiv + ' lives here!';
+            overlayOn();
+            // begin the overlay timer
+            startOverlayTime = timestamp;
+        }
     }
 
     // if the overlay timer is up, turn off the overlay

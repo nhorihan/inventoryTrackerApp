@@ -1,8 +1,8 @@
 .game-board {
     /* margin: auto; */
     display: grid;
-    grid-template-rows: 250px 250px 250px;
-    grid-template-columns: 250px;
+    grid-template-rows: 450px 450px ;
+    grid-template-columns: 450px;
     gap: 2em;
     justify-content: left;
 }

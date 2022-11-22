@@ -1,3 +1,7 @@
+/*
+THIS SCRIPT IS DEPRECATED, SEE INVENTORY.JS
+*/
+
 window.saveDataAcrossSessions = true
 
 const LOOK_DELAY = 1000;

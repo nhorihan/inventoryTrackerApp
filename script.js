@@ -102,6 +102,7 @@ webgazer.setGazeListener((data, timestamp) => {
         } else if(lookBox === "box4") {
             overlayOn();
             document.getElementById("text").innerHTML = '<b>Inventory Details:</b> <br>Inventory Object 4 lives here!';
+    
         } else if(lookBox === "box5") {
             overlayOn();
             document.getElementById("text").innerHTML = '<b>Inventory Details:</b> <br>Inventory Object 5 lives here!';

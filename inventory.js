@@ -28,10 +28,10 @@ webgazer.setGazeListener((data, timestamp) => {
             }
             isLookingAtSomething = true;
             lookDiv = i;
-            // childDivs[i].style.background="#555";
+            childDivs[i].style.background="#555";
         }
         // if this element isn't being looked at, make sure it's the correct color
-        // else childDivs[i].style.background="#444";
+        else childDivs[i].style.background="#444";
     }
 
     // if user is looking at something and the selection timer is up, bring up the overlay

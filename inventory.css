@@ -32,11 +32,15 @@ body {
     background-color: #555;
 }
 
+.box:checked {
+    background-color: #555;
+}
+
 #overlay {
     position: fixed;
     display: none; 
-    width: 100%; 
-    height: 100%; 
+    width: 25%; 
+    height: 25%; 
     top: 0;
     left: 0;
     right: 0;

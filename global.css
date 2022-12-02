@@ -2,15 +2,15 @@
     margin: auto;
     display: grid;
     grid-template-rows: 210px 210px 210px 210px;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px 200px;
     gap: 2em;
 }
 
 .settings-board {
     /* margin: auto; */
     display: grid;
-    grid-template-rows: 450px 450px ;
-    grid-template-columns: 450px;
+    grid-template-rows: 210px 210px ;
+    grid-template-columns: 200px 200px 200px 200px;
     gap: 2em;
     justify-content: left;
 }
@@ -18,7 +18,7 @@
 .map-board {
     display: grid;
     grid-template-rows: 210px;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px 200px;
     gap: 2em;
 }
 

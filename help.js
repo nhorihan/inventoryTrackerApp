@@ -41,13 +41,9 @@ webgazer.setGazeListener((data, timestamp) => {
         } else if (lookDiv === 1){
             window.location.replace('map.html');
         } else if (lookDiv === 2){
+            window.location.replace('inventory.html');
+        } else {
             window.location.replace('help.html');
-        }else {
-            document.getElementById("text").innerHTML = '<b>Inventory Details:</b> <br>Inventory Object ' 
-            + lookDiv - 3 + ' lives here!';
-            overlayOn();
-            // begin the overlay timer
-            startOverlayTime = timestamp;
         }
     }
 

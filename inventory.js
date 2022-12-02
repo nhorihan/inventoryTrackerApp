@@ -40,7 +40,10 @@ webgazer.setGazeListener((data, timestamp) => {
             window.location.replace('settings.html');
         } else if (lookDiv === 10){
             window.location.replace('map.html');
-        }else {
+        } else if (lookDiv === 11){
+            window.location.replace('help.html');
+        }
+        else {
             document.getElementById("text").innerHTML = '<b>Inventory Details:</b> <br>Inventory Object ' 
             + lookDiv + ' lives here!';
             overlayOn();
@@ -56,12 +59,14 @@ webgazer.setGazeListener((data, timestamp) => {
     }
 }).begin()
 
+
 function overlayOn() {
     console.log("on()");
     document.getElementById("overlay").style.display = "block";
 }
 
 function overlayOff() {
+    document.getElementById("rules-overlay").style.display = "none";
     document.getElementById("overlay").style.display = "none";
 }
 

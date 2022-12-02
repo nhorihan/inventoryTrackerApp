@@ -2,7 +2,23 @@
     margin: auto;
     display: grid;
     grid-template-rows: 210px 210px 210px 210px;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px 200px;
+    gap: 2em;
+}
+
+.settings-board {
+    /* margin: auto; */
+    display: grid;
+    grid-template-rows: 210px 210px ;
+    grid-template-columns: 200px 200px 200px 200px;
+    gap: 2em;
+    justify-content: left;
+}
+
+.map-board {
+    display: grid;
+    grid-template-rows: 210px;
+    grid-template-columns: 200px 200px 200px 200px;
     gap: 2em;
 }
 
@@ -32,15 +48,19 @@ body {
     background-color: #555;
 }
 
+.box:checked {
+    background-color: #555;
+}
+
 #overlay {
     position: fixed;
     display: none; 
-    width: 100%; 
-    height: 100%; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width: 25%; 
+    height: 25%; 
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
     background-color: rgba(0,0,0,0.5); 
     z-index: 2;
     cursor: pointer;
@@ -53,4 +73,11 @@ body {
     color: white;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
+  }
+
+  .map {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
   }

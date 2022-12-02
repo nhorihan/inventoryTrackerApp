@@ -34,7 +34,7 @@ webgazer.setGazeListener((data, timestamp) => {
         else childDivs[i].style.background="#444";
     }
 
-    // if user is looking at something and the selection timer is up, perform functions
+    // if user is looking at something and the selection timer is up, bring up the overlay
     if (isLookingAtSomething && startLookTime + LOOK_DELAY < timestamp) {
         if (lookDiv === 0){
             window.location.replace('settings.html');
@@ -45,7 +45,11 @@ webgazer.setGazeListener((data, timestamp) => {
         } else if (lookDiv === 3){
             window.location.replace('help.html');
         }else {
-            window.location.replace('exit.html');
+            document.getElementById("text").innerHTML = '<b>Inventory Details:</b> <br>Inventory Object ' 
+            + lookDiv + ' lives here!';
+            overlayOn();
+            // begin the overlay timer
+            startOverlayTime = timestamp;
         }
     }
 
@@ -55,6 +59,15 @@ webgazer.setGazeListener((data, timestamp) => {
         startOverlayTime = Number.POSITIVE_INFINITY;
     }
 }).begin()
+
+function overlayOn() {
+    console.log("on()");
+    document.getElementById("overlay").style.display = "block";
+}
+
+function overlayOff() {
+    document.getElementById("overlay").style.display = "none";
+}
 
 function isLookingAt(data, divRect) {
     if (data.x > divRect.x && data.x < divRect.x + divRect.width && data.y > divRect.y && data.y < divRect.y + divRect.height) return true;

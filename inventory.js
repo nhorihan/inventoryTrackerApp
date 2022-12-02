@@ -60,12 +60,14 @@ webgazer.setGazeListener((data, timestamp) => {
     }
 }).begin()
 
+
 function overlayOn() {
     console.log("on()");
     document.getElementById("overlay").style.display = "block";
 }
 
 function overlayOff() {
+    document.getElementById("rules-overlay").style.display = "none";
     document.getElementById("overlay").style.display = "none";
 }
 

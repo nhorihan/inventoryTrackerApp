@@ -44,7 +44,7 @@ webgazer.setGazeListener((data, timestamp) => {
             window.location.replace('help.html');
         }else {
             document.getElementById("text").innerHTML = '<b>Inventory Details:</b> <br>Inventory Object ' 
-            + lookDiv - 3 + ' lives here!';
+            + lookDiv + ' lives here!';
             overlayOn();
             // begin the overlay timer
             startOverlayTime = timestamp;

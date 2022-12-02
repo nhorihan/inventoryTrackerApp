@@ -6,6 +6,22 @@
     gap: 2em;
 }
 
+.settings-board {
+    /* margin: auto; */
+    display: grid;
+    grid-template-rows: 450px 450px ;
+    grid-template-columns: 450px;
+    gap: 2em;
+    justify-content: left;
+}
+
+.map-board {
+    display: grid;
+    grid-template-rows: 210px;
+    grid-template-columns: 200px 200px 200px;
+    gap: 2em;
+}
+
 .option {
     background: #888;
     border: 5px solid #777;
@@ -41,10 +57,10 @@ body {
     display: none; 
     width: 25%; 
     height: 25%; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
     background-color: rgba(0,0,0,0.5); 
     z-index: 2;
     cursor: pointer;
@@ -57,4 +73,11 @@ body {
     color: white;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
+  }
+
+  .map {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
   }

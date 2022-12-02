@@ -1,54 +1,58 @@
+// retain webgazer training data
 window.saveDataAcrossSessions = true
 
+// How long does someone need to look at an element before it's considered selected
 const LOOK_DELAY = 1000;
+// How long should the overlay remain on the screen
+const OVERLAY_DELAY = 2000;
 
 let startLookTime = Number.POSITIVE_INFINITY;
-// 0 is div that is looked at, 1 is whether or not gaze is on any box
+let startOverlayTime = Number.POSITIVE_INFINITY;
 let lookDiv = null;
 let isLookingAtSomething = false;
 var childDivs = document.getElementById('inv').getElementsByTagName('div');
+console.log(childDivs)
 
 webgazer.setGazeListener((data, timestamp) => {
     // restart loop if no tracking data
-    isLookingAtSomething = false;
     if(data == null) return
-    // create an array of all the sub-elements in the inventory game-board
     isLookingAtSomething = false;
-    for( i=0; i < childDivs.length; i++ ) {
+    for( i=0; i < childDivs.length ; i++ ) {
         // get dimensions for current div in loop
         var curDivRect = childDivs[i].getBoundingClientRect()
+        // if looking at an element, change color, mark it as looked at, and mark looking at something
         if (isLookingAt(data, curDivRect)) {
+            // if it's the first "frame" looking at an element, restart the selection timer
             if (lookDiv != i) {
-
                 startLookTime = timestamp;
             }
             isLookingAtSomething = true;
             lookDiv = i;
-            childDivs[i].style.background="#555";
-            console.log("deez" + i);
+            // childDivs[i].style.background="#555";
         }
-        else childDivs[i].style.background="#444";
+        // if this element isn't being looked at, make sure it's the correct color
+        // else childDivs[i].style.background="#444";
     }
 
-    // if user isn't looking at any div elements, start look clock for "nothing"
-    if (!isLookingAtSomething) {
-        startLookTime = timestamp;
-    }
-
-    if (startLookTime + LOOK_DELAY < timestamp) {
-        // if looking at an element, display info
-        if (isLookingAtSomething) {
-            overlayOn();
+    // if user is looking at something and the selection timer is up, bring up the overlay
+    if (isLookingAtSomething && startLookTime + LOOK_DELAY < timestamp) {
+        if (lookDiv === 9){
+            window.location.replace('settings.html');
+        } else if (lookDiv === 10){
+            window.location.replace('map.html');
+        }else {
             document.getElementById("text").innerHTML = '<b>Inventory Details:</b> <br>Inventory Object ' 
             + lookDiv + ' lives here!';
+            overlayOn();
+            // begin the overlay timer
+            startOverlayTime = timestamp;
         }
-        // if looking at "nothing", turn off the overlay
-        else if (!isLookingAtSomething) {
-            overlayOff();
-        }
+    }
 
-        //startLookTime = Number.POSITIVE_INFINITY;
-        lookDiv = null;
+    // if the overlay timer is up, turn off the overlay
+    if (startOverlayTime + OVERLAY_DELAY < timestamp) {
+        overlayOff();
+        startOverlayTime = Number.POSITIVE_INFINITY;
     }
 }).begin()
 

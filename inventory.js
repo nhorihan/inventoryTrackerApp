@@ -44,7 +44,7 @@ webgazer.setGazeListener((data, timestamp) => {
             window.location.replace('help.html');
         } else {
             document.getElementById("text").innerHTML = '<b>Inventory Details:</b> <br>Inventory Object ' 
-            + lookDiv - 3 + ' lives here!';
+            + (lookDiv - 2) + ' lives here!';
             overlayOn();
             // begin the overlay timer
             startOverlayTime = timestamp;
@@ -65,7 +65,6 @@ function overlayOn() {
 }
 
 function overlayOff() {
-    document.getElementById("overlay").style.display = "none";
     document.getElementById("overlay").style.display = "none";
 }
 

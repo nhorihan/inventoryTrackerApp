@@ -2,7 +2,7 @@
     margin: auto;
     display: grid;
     grid-template-rows: 210px 210px 210px 210px;
-    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px ;
     gap: 2em;
 }
 
@@ -10,15 +10,24 @@
     /* margin: auto; */
     display: grid;
     grid-template-rows: 210px 210px ;
-    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+    gap: 2em;
+    justify-content: left;
+}
+
+.help-board {
+    /* margin: auto; */
+    display: grid;
+    grid-template-rows: 210px 210px ;
+    grid-template-columns: 200px 200px 200px;
     gap: 2em;
     justify-content: left;
 }
 
 .map-board {
     display: grid;
-    grid-template-rows: 210px;
-    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-rows: 210px ;
+    grid-template-columns: 200px 200px 200px;
     gap: 2em;
 }
 
@@ -79,5 +88,6 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 325%;
+    height: 100%;
   }

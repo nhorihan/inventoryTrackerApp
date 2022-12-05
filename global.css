@@ -66,8 +66,8 @@ body {
     display: none; 
     width: 25%; 
     height: 25%; 
-    top: auto;
-    left: auto;
+    top: 30%;
+    left: 70%;
     right: auto;
     bottom: auto;
     background-color: rgba(0,0,0,0.5); 

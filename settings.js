@@ -3,11 +3,8 @@ window.saveDataAcrossSessions = true
 
 // How long does someone need to look at an element before it's considered selected
 const LOOK_DELAY = 1000;
-// How long should the overlay remain on the screen
-const OVERLAY_DELAY = 2000;
 
 let startLookTime = Number.POSITIVE_INFINITY;
-let startOverlayTime = Number.POSITIVE_INFINITY;
 let lookDiv = null;
 let isLookingAtSomething = false;
 var childDivs = document.getElementById('board').getElementsByTagName('div');
@@ -48,12 +45,6 @@ webgazer.setGazeListener((data, timestamp) => {
         }else {
             window.location.replace('exit.html');
         }
-    }
-
-    // if the overlay timer is up, turn off the overlay
-    if (startOverlayTime + OVERLAY_DELAY < timestamp) {
-        overlayOff();
-        startOverlayTime = Number.POSITIVE_INFINITY;
     }
 }).begin()
 

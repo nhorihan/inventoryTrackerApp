@@ -39,35 +39,17 @@ webgazer.setGazeListener((data, timestamp) => {
         if (lookDiv === 0){
             window.location.replace('settings.html');
         } else if (lookDiv === 1){
-            window.location.replace('map.html');
-        } else if (lookDiv === 2){
             window.location.replace('inventory.html');
-        } else if (lookDiv === 3){
+        } else if (lookDiv === 2){
             window.location.replace('help.html');
-        }else {
-            document.getElementById("text").innerHTML = '<b>Inventory Details:</b> <br>Inventory Object ' 
-            + lookDiv + ' lives here!';
-            overlayOn();
-            // begin the overlay timer
-            startOverlayTime = timestamp;
         }
     }
 
     // if the overlay timer is up, turn off the overlay
-    if (startOverlayTime + OVERLAY_DELAY < timestamp) {
-        overlayOff();
-        startOverlayTime = Number.POSITIVE_INFINITY;
-    }
+
 }).begin()
 
-function overlayOn() {
-    console.log("on()");
-    document.getElementById("overlay").style.display = "block";
-}
 
-function overlayOff() {
-    document.getElementById("overlay").style.display = "none";
-}
 
 function isLookingAt(data, divRect) {
     if (data.x > divRect.x && data.x < divRect.x + divRect.width && data.y > divRect.y && data.y < divRect.y + divRect.height) return true;

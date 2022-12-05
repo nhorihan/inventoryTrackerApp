@@ -36,14 +36,15 @@ webgazer.setGazeListener((data, timestamp) => {
 
     // if user is looking at something and the selection timer is up, perform functions
     if (isLookingAtSomething && startLookTime + LOOK_DELAY < timestamp) {
-        if (lookDiv === 0){
-            window.location.replace('settings.html');
-        } else if (lookDiv === 1){
+         if (lookDiv === 0){
             window.location.replace('map.html');
-        } else if (lookDiv === 2){
+        } else if (lookDiv === 1){
             window.location.replace('inventory.html');
-        } else if (lookDiv === 3){
+        } else if (lookDiv === 2){
             window.location.replace('help.html');
+        }
+        else if (lookDiv === 3){
+            window.location.replace('inventory.html');
         }else {
             window.location.replace('exit.html');
         }
